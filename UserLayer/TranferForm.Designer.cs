@@ -35,10 +35,12 @@ namespace UserLayer
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
+            this.lblTitle.Dock = System.Windows.Forms.DockStyle.Left;
             this.lblTitle.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblTitle.Location = new System.Drawing.Point(260, 21);
+            this.lblTitle.Location = new System.Drawing.Point(0, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(193, 28);
+            this.lblTitle.Padding = new System.Windows.Forms.Padding(100, 0, 0, 0);
+            this.lblTitle.Size = new System.Drawing.Size(293, 28);
             this.lblTitle.TabIndex = 1;
             this.lblTitle.Text = "Make Transfers ";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
