@@ -41,6 +41,7 @@ namespace DataLayer
 
             adapter = new MySqlDataAdapter(query,mySqlConnection);
             adapter.Fill(dataSet, "tlbWineries");
+            mySqlConnection.Close();
 
             return dataSet;
 

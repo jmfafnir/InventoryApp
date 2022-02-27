@@ -4,10 +4,10 @@ using System.Text;
 
 namespace EntityLayer
 {
-    class Inventory
+    public class Inventory
     {
         public int id { get; set; }
-        public int stock { get; set; }
+        public uint stock { get; set; }
         public int winerie_id { get; set; }
         public int item_id { get; set; }
     }
