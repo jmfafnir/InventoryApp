@@ -19,7 +19,7 @@ namespace DataLayer
                 "as Destination_Winery, items.name as Item, log.date as Date, log.amount as Amount " +
                 "from log join wineries as origin_winery on origin_winery.id = log.origin_winerie " +
                 "join wineries as destination_winery on destination_winery.id = log.destination_winerie " +
-                "join items on items.id = log.item_id;";
+                "join items on items.id = log.item_id order by  log.date desc;";
 
             MySqlCommand mySqlCommand = new MySqlCommand(query, mySqlConnection);
             
