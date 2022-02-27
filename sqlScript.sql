@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `inventory` (
 
 CREATE TABLE IF NOT EXISTS `log` (
   `id` int(4) NOT NULL  AUTO_INCREMENT COMMENT 'Clave primaria',
-  `fecha` TIMESTAMP NOT NULL DEFAULT (CURRENT_DATE) COMMENT 'fecha de transferencia',
+  `date` TIMESTAMP NOT NULL DEFAULT (CURRENT_DATE) COMMENT 'fecha de transferencia',
   `origin_winerie` int(4) NOT NULL  COMMENT 'Bodega origen',
   `destination_winerie` int(4) NOT NULL  COMMENT 'Bodega destino',
   `item_id` int(4) NOT NULL COMMENT 'articulo trasferido',
@@ -66,15 +66,23 @@ where wineries.id = 1;
 select id,name from wineries;
 
 #consultas y sentencias utilizadas Tranferencia de articulos
-select * from items join inventory on inventory.item_id = items.id where inventory.winerie_id = 3;
+select items.id,items.name from items join inventory on inventory.item_id = items.id where inventory.winerie_id = 2;
 
 select stock from inventory where inventory.winerie_id = 1 and inventory.item_id = 6;
 
-update inventory set inventory.stock = 23 WHERE inventory.winerie_id = 1 and inventory.item_id = 2;
+update inventory set inventory.stock = 30 WHERE inventory.winerie_id = 3 and inventory.item_id = 1;
 
 INSERT INTO inventory (stock,winerie_id,item_id ) VALUES (40,1,2);
 
 insert into log (origin_winerie,destination_winerie,item_id,amount) values (1,2,2,23);
+
+#consultas utilizadas para info trasferencias
+
+select origin_winery.name as Origin_Winery , destination_winery.name 
+as Destination_Winery, items.name as Item, log.date as Date, log.amount as Amount
+from log join wineries as origin_winery on origin_winery.id = log.origin_winerie 
+join wineries as destination_winery on destination_winery.id = log.destination_winerie
+join items on items.id = log.item_id;
 
 
 

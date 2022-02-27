@@ -71,6 +71,15 @@ namespace UserLayer
                             {
                                 blTransfer.UpdateInventoryRegister(false, id_winerie_origin, id_item, amount);
                                 blTransfer.UpdateInventoryRegister(true, id_winerie_destination, id_item, amount);
+                                LogRegister logRegister = new LogRegister();
+                                logRegister.origin_winerie = id_winerie_origin;
+                                logRegister.destination_winerie = id_winerie_destination;
+                                logRegister.item_id = id_item;
+                                logRegister.amount = amount;
+                                blTransfer.IncertLogRegister(logRegister);
+                                MessageBox.Show("Item Transfer Successful ");
+                                CleantheForm(id_winerie_origin,id_winerie_destination, id_item);
+
                             }
                             else
                             {
@@ -166,6 +175,13 @@ namespace UserLayer
             {
                 e.Handled = true;
             }
+        }
+
+
+        private void CleantheForm(int id_winerie_origin, int id_winerie_destination, int id_item)
+        {
+            GetStockofWinery(id_winerie_origin, id_winerie_destination, id_item);
+            txtAmountTransfer.Text = "";
         }
     }
 

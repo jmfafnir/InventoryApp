@@ -30,6 +30,8 @@ namespace UserLayer
         private void InitializeComponent()
         {
             this.lblTitle = new System.Windows.Forms.Label();
+            this.gridLogRegister = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.gridLogRegister)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -45,16 +47,28 @@ namespace UserLayer
             this.lblTitle.Text = "Register of Transfers";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // gridLogRegister
+            // 
+            this.gridLogRegister.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.gridLogRegister.Location = new System.Drawing.Point(39, 51);
+            this.gridLogRegister.Name = "gridLogRegister";
+            this.gridLogRegister.RowTemplate.Height = 25;
+            this.gridLogRegister.Size = new System.Drawing.Size(644, 434);
+            this.gridLogRegister.TabIndex = 2;
+            // 
             // LogForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(184)))), ((int)(((byte)(195)))), ((int)(((byte)(206)))));
             this.ClientSize = new System.Drawing.Size(721, 511);
+            this.Controls.Add(this.gridLogRegister);
             this.Controls.Add(this.lblTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "LogForm";
             this.Text = "LogForm";
+            this.Load += new System.EventHandler(this.LogForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.gridLogRegister)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -63,5 +77,6 @@ namespace UserLayer
         #endregion
 
         private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.DataGridView gridLogRegister;
     }
 }
